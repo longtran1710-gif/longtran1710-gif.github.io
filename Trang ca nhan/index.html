@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ & Blog cá nhân - CLB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <h1>Hồ sơ cá nhân</h1>
+        <p>Quản lý thông tin và dòng thời gian của bạn.</p>
+    </header>
+
+    <section class="section">
+        <div class="card-item profile-card">
+            <div class="profile-header">
+                <div class="avatar-wrapper">
+                    <img id="displayAvatar" src="" alt="Avatar">
+                    <label for="uploadAvatar" class="edit-avatar-btn"><i class="fas fa-camera"></i></label>
+                    <input type="file" id="uploadAvatar" hidden onchange="previewImage(event)">
+                </div>
+                <div class="profile-main-info">
+                    <h2 id="displayFullname">Họ và Tên</h2>
+                    <p id="displayEmail">email@hcmue.edu.vn</p>
+                    <span class="badge badge-done">Thành viên chính thức</span>
+                </div>
+            </div>
+
+            <div class="profile-form">
+                <div class="form-grid">
+                    <div class="form-group"><label>Họ và tên</label><input type="text" id="inputFullname"></div>
+                    <div class="form-group"><label>MSSV</label><input type="text" id="inputStudentId" disabled></div>
+                    <div class="form-group"><label>Số điện thoại</label><input type="text" id="inputPhone"></div>
+                    <div class="form-group"><label>Địa chỉ</label><input type="text" id="inputAddress"></div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-secondary" onclick="resetForm()">HỦY BỎ</button>
+                    <button class="btn-primary" onclick="saveProfile()">LƯU THAY ĐỔI</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section">
+        <div class="section-header">
+            <h3><i class="fa-solid fa-bolt"></i> Bài viết gần đây</h3>
+            <button class="btn-create-post" id="openModalBtn">
+                <i class="fa-solid fa-plus"></i> Tạo bài viết
+            </button>
+        </div>
+
+        <div id="postsContainer" class="posts-grid">
+            </div>
+    </section>
+</div>
+
+<div id="postModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Tạo bài viết mới</h3>
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <input type="text" id="newPostTitle" placeholder="Tiêu đề bài viết...">
+            <select id="newPostTag">
+                <option value="Chia sẻ">Chia sẻ</option>
+                <option value="Hoạt động">Hoạt động</option>
+            </select>
+            <textarea id="newPostDesc" rows="4" placeholder="Bạn đang nghĩ gì thế?"></textarea>
+            <button class="btn-primary" style="width: 100%;" onclick="addNewPost()">ĐĂNG BÀI</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
