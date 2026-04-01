@@ -27,7 +27,7 @@
                 <div class="profile-main-info">
                     <h2 id="displayFullname">Họ và Tên</h2>
                     <p id="displayEmail">email@hcmue.edu.vn</p>
-                    <span class="badge badge-done">Thành viên chính thức</span>
+                    <span class="badge-status">Thành viên chính thức</span>
                 </div>
             </div>
 
@@ -53,9 +53,7 @@
                 <i class="fa-solid fa-plus"></i> Tạo bài viết
             </button>
         </div>
-
-        <div id="postsContainer" class="posts-grid">
-            </div>
+        <div id="postsContainer" class="posts-grid"></div>
     </section>
 </div>
 
@@ -66,13 +64,36 @@
             <span class="close-btn" onclick="closeModal()">&times;</span>
         </div>
         <div class="modal-body">
-            <input type="text" id="newPostTitle" placeholder="Tiêu đề bài viết...">
-            <select id="newPostTag">
-                <option value="Chia sẻ">Chia sẻ</option>
-                <option value="Hoạt động">Hoạt động</option>
-            </select>
-            <textarea id="newPostDesc" rows="4" placeholder="Bạn đang nghĩ gì thế?"></textarea>
-            <button class="btn-primary" style="width: 100%;" onclick="addNewPost()">ĐĂNG BÀI</button>
+            <div class="modal-form-group">
+                <input type="text" id="newPostTitle" placeholder="Tiêu đề bài viết...">
+            </div>
+            
+            <div class="modal-form-group">
+                <select id="newPostTag">
+                    <option value="Chia sẻ">Chia sẻ</option>
+                    <option value="Hoạt động">Hoạt động</option>
+                </select>
+            </div>
+
+            <div class="modal-form-group">
+                <textarea id="newPostDesc" rows="4" placeholder="Bạn đang nghĩ gì thế?"></textarea>
+            </div>
+            
+            <div class="file-upload-row">
+                <label for="postImage" class="btn-file">
+                    <i class="fa-solid fa-image"></i> Hình ảnh
+                </label>
+                <input type="file" id="postImage" accept="image/*" hidden onchange="handleFileSelect(this, 'img')">
+                
+                <label for="postDoc" class="btn-file">
+                    <i class="fa-solid fa-file-export"></i> Tài liệu
+                </label>
+                <input type="file" id="postDoc" accept=".pdf,.doc,.docx,.zip" hidden onchange="handleFileSelect(this, 'doc')">
+            </div>
+            
+            <div id="filePreview" class="preview-text"></div>
+
+            <button class="btn-primary btn-submit" onclick="addNewPost()">ĐĂNG BÀI BAY GIỜ</button>
         </div>
     </div>
 </div>
